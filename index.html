@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junk Removal Profit Margin Calculator</title>
-    <!-- Fixed Google Font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- App Icon for iOS Home Screen - Vibrant 3D Design -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDwhLS0gQmFja2dyb3VuZCBncmFkaWVudHMgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGYxNzJhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxZTI5M2I7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgCiAgICA8IS0tIFZpYnJhbnQgZ3JlZW4gZ3JhZGllbnQgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyZWVuR2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxMGI5ODE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMzRkMzk5O3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2ZWU3Yjc7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgCiAgICA8IS0tIEN5YW4gYWNjZW50IGdyYWRpZW50IC0tPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjeWFuR2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwNmI2ZDQ7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzIyZDNlZTtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAKICAgIDwhLS0gWWVsbG93L0dvbGQgZ3JhZGllbnQgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGRHbG93IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1OWUwYjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmJiZjI0O3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIAogICAgPCEtLSAzRCBzaGFkb3cgZWZmZWN0IC0tPgogICAgPGZpbHRlciBpZD0ic2hhZG93M2QiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUFscGhhIiBzdGREZXZpYXRpb249IjQiLz4KICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iNCIgcmVzdWx0PSJvZmZzZXRibHVyIi8+CiAgICAgIDxmZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICAgIDxmZUZ1bmNBIHR5cGU9ImxpbmVhciIgc2xvcGU9IjAuNSIvPgogICAgICA8L2ZlQ29tcG9uZW50VHJhbnNmZXI+CiAgICAgIDxmZU1lcmdlPgogICAgICAgIDxmZU1lcmdlTm9kZS8+CiAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+CiAgICAgIDwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogICAgCiAgICA8IS0tIEdsb3cgZWZmZWN0IC0tPgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjYiIHJlc3VsdD0iY29sb3JlZEJsdXIiLz4KICAgICAgPGZlTWVyZ2U+CiAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJjb2xvcmVkQmx1ciIvPgogICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPgogICAgICA8L2ZlTWVyZ2U+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CiAgCiAgPCEtLSBEYXJrIGJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9InVybCgjYmdHcmFkaWVudCkiIHJ4PSI5MCIvPgogIAogIDwhLS0gR2xvd2luZyBvcmJzIGluIGJhY2tncm91bmQgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI4MCIgZmlsbD0idXJsKCNncmVlbkdsb3cpIiBvcGFjaXR5PSIwLjE1IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8Y2lyY2xlIGN4PSI0MTIiIGN5PSI0MTIiIHI9IjgwIiBmaWxsPSJ1cmwoI2N5YW5HbG93KSIgb3BhY2l0eT0iMC4xNSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iMTIwIiByPSI2MCIgZmlsbD0idXJsKCNnb2xkR2xvdykiIG9wYWNpdHk9IjAuMTIiIGZpbHRlcj0idXJsKCNnbG93KSIvPgogIAogIDwhLS0gTWFpbiAzRCBjaGFydCB2aXN1YWxpemF0aW9uIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MCwgMTgwKSIgZmlsdGVyPSJ1cmwoI3NoYWRvdzNkKSI+CiAgICA8IS0tIFJpc2luZyBiYXIgY2hhcnQgd2l0aCAzRCBlZmZlY3QgLS0+CiAgICA8Zz4KICAgICAgPCEtLSBCYXIgMSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOSIvPgogICAgICA8cmVjdCB4PSIwIiB5PSI4MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNmVlN2I3IiByeD0iOCIgb3BhY2l0eT0iMC42Ii8+CiAgICAgIAogICAgICA8IS0tIEJhciAyIC0tPgogICAgICA8cmVjdCB4PSI1NSIgeT0iNTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMzAiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHJlY3QgeD0iNTUiIHk9IjUwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjAiIGZpbGw9IiM2ZWU3YjciIHJ4PSI4IiBvcGFjaXR5PSIwLjYiLz4KICAgICAgCiAgICAgIDwhLS0gQmFyIDMgLSBUYWxsZXN0IChoaWdobGlnaHQpIC0tPgogICAgICA8cmVjdCB4PSIxMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iMTcwIiBmaWxsPSJ1cmwoI2N5YW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjEiIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgICA8cmVjdCB4PSIxMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjUiIGZpbGw9IiMyMmQzZWUiIHJ4PSI4IiBvcGFjaXR5PSIwLjciLz4KICAgICAgCiAgICAgIDwhLS0gQmFyIDQgLS0+CiAgICAgIDxyZWN0IHg9IjE2NSIgeT0iMzUiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxNDUiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHJlY3QgeD0iMTY1IiB5PSIzNSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNmVlN2I3IiByeD0iOCIgb3BhY2l0eT0iMC42Ii8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gVHJlbmRpbmcgdXAgYXJyb3cgLS0+CiAgICA8cGF0aCBkPSJNIDEwIDEwMCBMIDEwMCAyMCBMIDE5MCA2MCIgCiAgICAgICAgICBzdHJva2U9IiMyMmQzZWUiIAogICAgICAgICAgc3Ryb2tlLXdpZHRoPSI0IiAKICAgICAgICAgIGZpbGw9Im5vbmUiIAogICAgICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgIG9wYWNpdHk9IjAuOCIKICAgICAgICAgIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgCiAgICA8IS0tIEFycm93IGhlYWQgLS0+CiAgICA8cGF0aCBkPSJNIDE5MCA2MCBMIDE4MCA1NSBMIDE4NSA2NSBaIiAKICAgICAgICAgIGZpbGw9IiMyMmQzZWUiIAogICAgICAgICAgb3BhY2l0eT0iMC44Ii8+CiAgPC9nPgogIAogIDwhLS0gRmxvYXRpbmcgZG9sbGFyIHNpZ24gd2l0aCAzRCBlZmZlY3QgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTAsIDcwKSIgZmlsdGVyPSJ1cmwoI3NoYWRvdzNkKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNDUiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgb3BhY2l0eT0iMC4yIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgCiAgICAgICAgICBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIiAKICAgICAgICAgIGZvbnQtc2l6ZT0iNTUiIAogICAgICAgICAgZm9udC13ZWlnaHQ9IjgwMCIgCiAgICAgICAgICBmaWxsPSJ1cmwoI2dyZWVuR2xvdykiIAogICAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICAgIGZpbHRlcj0idXJsKCNnbG93KSI+JDwvdGV4dD4KICA8L2c+CiAgCiAgPCEtLSBGbG9hdGluZyBwZXJjZW50IHNpZ24gd2l0aCAzRCBlZmZlY3QgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDIyLCA4MCkiIGZpbHRlcj0idXJsKCNzaGFkb3czZCkiPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjQwIiBmaWxsPSJ1cmwoI2dvbGRHbG93KSIgb3BhY2l0eT0iMC4yIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxMiIgCiAgICAgICAgICBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIiAKICAgICAgICAgIGZvbnQtc2l6ZT0iNDgiIAogICAgICAgICAgZm9udC13ZWlnaHQ9IjgwMCIgCiAgICAgICAgICBmaWxsPSJ1cmwoI2dvbGRHbG93KSIgCiAgICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgICAgZmlsdGVyPSJ1cmwoI2dsb3cpIj4lPC90ZXh0PgogIDwvZz4KICAKICA8IS0tIE1haW4gdGl0bGUgd2l0aCBtb2Rlcm4gZm9udCAtLT4KICA8ZyBmaWx0ZXI9InVybCgjc2hhZG93M2QpIj4KICAgIDx0ZXh0IHg9IjI1NiIgeT0iNDIwIiAKICAgICAgICAgIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIAogICAgICAgICAgZm9udC1zaXplPSI0OCIgCiAgICAgICAgICBmb250LXdlaWdodD0iODAwIiAKICAgICAgICAgIGZpbGw9IiNGRkZGRkYiIAogICAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICAgIGxldHRlci1zcGFjaW5nPSIyIj5QUk9GSVQ8L3RleHQ+CiAgICAKICAgIDx0ZXh0IHg9IjI1NiIgeT0iNDY1IiAKICAgICAgICAgIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIAogICAgICAgICAgZm9udC1zaXplPSIzMiIgCiAgICAgICAgICBmb250LXdlaWdodD0iNjAwIiAKICAgICAgICAgIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgCiAgICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgICAgbGV0dGVyLXNwYWNpbmc9IjYiPkNBTENVTEFUT1I8L3RleHQ+CiAgPC9nPgogIAogIDwhLS0gU3BhcmtsZS9zaGluZSBlZmZlY3RzIC0tPgogIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjE1MCIgcj0iMyIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iMTgwIiByPSIyIiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSIyODAiIGN5PSIxMjAiIHI9IjIuNSIgZmlsbD0iIzIyZDNlZSIgb3BhY2l0eT0iMC44Ii8+CiAgPGNpcmNsZSBjeD0iNDIwIiBjeT0iMzAwIiByPSIyIiBmaWxsPSIjNmVlN2I3IiBvcGFjaXR5PSIwLjYiLz4KICAKICA8IS0tIEdyaWQgZG90cyBwYXR0ZXJuICh0ZWNoIGZlZWwpIC0tPgogIDxnIG9wYWNpdHk9IjAuMSI+CiAgICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNjAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICAgIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSIyODAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICA8L2c+Cjwvc3ZnPgo=">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDwhLS0gQmFja2dyb3VuZCBncmFkaWVudHMgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMGYxNzJhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxZTI5M2I7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgCiAgICA8IS0tIFZpYnJhbnQgZ3JlZW4gZ3JhZGllbnQgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyZWVuR2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxMGI5ODE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMzRkMzk5O3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2ZWU3Yjc7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgCiAgICA8IS0tIEN5YW4gYWNjZW50IGdyYWRpZW50IC0tPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjeWFuR2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwNmI2ZDQ7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzIyZDNlZTtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAKICAgIDwhLS0gWWVsbG93L0dvbGQgZ3JhZGllbnQgLS0+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGRHbG93IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1OWUwYjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmJiZjI0O3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIAogICAgPCEtLSAzRCBzaGFkb3cgZWZmZWN0IC0tPgogICAgPGZpbHRlciBpZD0ic2hhZG93M2QiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUFscGhhIiBzdGREZXZpYXRpb249IjQiLz4KICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iNCIgcmVzdWx0PSJvZmZzZXRibHVyIi8+CiAgICAgIDxmZUNvbXBvbmVudFRyYW5zZmVyPgogICAgICAgIDxmZUZ1bmNBIHR5cGU9ImxpbmVhciIgc2xvcGU9IjAuNSIvPgogICAgICA8L2ZlQ29tcG9uZW50VHJhbnNmZXI+CiAgICAgIDxmZU1lcmdlPgogICAgICAgIDxmZU1lcmdlTm9kZS8+CiAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+CiAgICAgIDwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogICAgCiAgICA8IS0tIEdsb3cgZWZmZWN0IC0tPgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjYiIHJlc3VsdD0iY29sb3JlZEJsdXIiLz4KICAgICAgPGZlTWVyZ2U+CiAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJjb2xvcmVkQmx1ciIvPgogICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPgogICAgICA8L2ZlTWVyZ2U+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CiAgCiAgPCEtLSBEYXJrIGJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9InVybCgjYmdHcmFkaWVudCkiIHJ4PSI5MCIvPgogIAogIDwhLS0gR2xvd2luZyBvcmJzIGluIGJhY2tncm91bmQgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI4MCIgZmlsbD0idXJsKCNncmVlbkdsb3cpIiBvcGFjaXR5PSIwLjE1IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8Y2lyY2xlIGN4PSI0MTIiIGN5PSI0MTIiIHI9IjgwIiBmaWxsPSJ1cmwoI2N5YW5HbG93KSIgb3BhY2l0eT0iMC4xNSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgPGNpcmNsZSBjeD0iMzgwIiBjeT0iMTIwIiByPSI2MCIgZmlsbD0idXJsKCNnb2xkR2xvdykiIG9wYWNpdHk9IjAuMTIiIGZpbHRlcj0idXJsKCNnbG93KSIvPgogIAogIDwhLS0gTWFpbiAzRCBjaGFydCB2aXN1YWxpemF0aW9uIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MCwgMTgwKSIgZmlsdGVyPSJ1cmwoI3NoYWRvdzNkKSI+CiAgICA8IS0tIFJpc2luZyBiYXIgY2hhcnQgd2l0aCAzRCBlZmZlY3QgLS0+CiAgICA8Zz4KICAgICAgPCEtLSBCYXIgMSAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOSIvPgogICAgICA8cmVjdCB4PSIwIiB5PSI4MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNmVlN2I3IiByeD0iOCIgb3BhY2l0eT0iMC42Ii8+CiAgICAgIAogICAgICA8IS0tIEJhciAyIC0tPgogICAgICA8cmVjdCB4PSI1NSIgeT0iNTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMzAiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHJlY3QgeD0iNTUiIHk9IjUwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjAiIGZpbGw9IiM2ZWU3YjciIHJ4PSI4IiBvcGFjaXR5PSIwLjYiLz4KICAgICAgCiAgICAgIDwhLS0gQmFyIDMgLSBUYWxsZXN0IChoaWdobGlnaHQpIC0tPgogICAgICA8cmVjdCB4PSIxMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iMTcwIiBmaWxsPSJ1cmwoI2N5YW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjEiIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgICA8cmVjdCB4PSIxMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjUiIGZpbGw9IiMyMmQzZWUiIHJ4PSI4IiBvcGFjaXR5PSIwLjciLz4KICAgICAgCiAgICAgIDwhLS0gQmFyIDQgLS0+CiAgICAgIDxyZWN0IHg9IjE2NSIgeT0iMzUiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxNDUiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgcng9IjgiIG9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHJlY3QgeD0iMTY1IiB5PSIzNSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNmVlN2I3IiByeD0iOCIgb3BhY2l0eT0iMC42Ii8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gVHJlbmRpbmcgdXAgYXJyb3cgLS0+CiAgICA8cGF0aCBkPSJNIDEwIDEwMCBMIDEwMCAyMCBMIDE5MCA2MCIgCiAgICAgICAgICBzdHJva2U9IiMyMmQzZWUiIAogICAgICAgICAgc3Ryb2tlLXdpZHRoPSI0IiAKICAgICAgICAgIGZpbGw9Im5vbmUiIAogICAgICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgICAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgIG9wYWNpdHk9IjAuOCIKICAgICAgICAgIGZpbHRlcj0idXJsKCNnbG93KSIvPgogICAgCiAgICA8IS0tIEFycm93IGhlYWQgLS0+CiAgICA8cGF0aCBkPSJNIDE5MCA2MCBMIDE4MCA1NSBMIDE4NSA2NSBaIiAKICAgICAgICAgIGZpbGw9IiMyMmQzZWUiIAogICAgICAgICAgb3BhY2l0eT0iMC44Ii8+CiAgPC9nPgogIAogIDwhLS0gRmxvYXRpbmcgZG9sbGFyIHNpZ24gd2l0aCAzRCBlZmZlY3QgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTAsIDcwKSIgZmlsdGVyPSJ1cmwoI3NoYWRvdzNkKSI+CiAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNDUiIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgb3BhY2l0eT0iMC4yIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxNSIgCiAgICAgICAgICBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIiAKICAgICAgICAgIGZvbnQtc2l6ZT0iNTUiIAogICAgICAgICAgZm9udC13ZWlnaHQ9IjgwMCIgCiAgICAgICAgICBmaWxsPSJ1cmwoI2dyZWVuR2xvdykiIAogICAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICAgIGZpbHRlcj0idXJsKCNnbG93KSI+JDwvdGV4dD4KICA8L2c+CiAgCiAgPCEtLSBGbG9hdGluZyBwZXJjZW50IHNpZ24gd2l0aCAzRCBlZmZlY3QgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDIyLCA4MCkiIGZpbHRlcj0idXJsKCNzaGFkb3czZCkiPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjQwIiBmaWxsPSJ1cmwoI2dvbGRHbG93KSIgb3BhY2l0eT0iMC4yIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIxMiIgCiAgICAgICAgICBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIiAKICAgICAgICAgIGZvbnQtc2l6ZT0iNDgiIAogICAgICAgICAgZm9udC13ZWlnaHQ9IjgwMCIgCiAgICAgICAgICBmaWxsPSJ1cmwoI2dvbGRHbG93KSIgCiAgICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgICAgZmlsdGVyPSJ1cmwoI2dsb3cpIj4lPC90ZXh0PgogIDwvZz4KICAKICA8IS0tIE1haW4gdGl0bGUgd2l0aCBtb2Rlcm4gZm9udCAtLT4KICA8ZyBmaWx0ZXI9InVybCgjc2hhZG93M2QpIj4KICAgIDx0ZXh0IHg9IjI1NiIgeT0iNDIwIiAKICAgICAgICAgIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIAogICAgICAgICAgZm9udC1zaXplPSI0OCIgCiAgICAgICAgICBmb250LXdlaWdodD0iODAwIiAKICAgICAgICAgIGZpbGw9IiNGRkZGRkYiIAogICAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICAgIGxldHRlci1zcGFjaW5nPSIyIj5QUk9GSVQ8L3RleHQ+CiAgICAKICAgIDx0ZXh0IHg9IjI1NiIgeT0iNDY1IiAKICAgICAgICAgIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIAogICAgICAgICAgZm9udC1zaXplPSIzMiIgCiAgICAgICAgICBmb250LXdlaWdodD0iNjAwIiAKICAgICAgICAgIGZpbGw9InVybCgjZ3JlZW5HbG93KSIgCiAgICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgICAgbGV0dGVyLXNwYWNpbmc9IjYiPkNBTENVTEFUT1I8L3RleHQ+CiAgPC9nPgogIAogIDwhLS0gU3BhcmtsZS9zaGluZSBlZmZlY3RzIC0tPgogIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjE1MCIgcj0iMyIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iMTgwIiByPSIyIiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSIyODAiIGN5PSIxMjAiIHI9IjIuNSIgZmlsbD0iIzIyZDNlZSIgb3BhY2l0eT0iMC44Ii8+CiAgPGNpcmNsZSBjeD0iNDIwIiBjeT0iMzAwIiByPSIyIiBmaWxsPSIjNmVlN2I3IiBvcGFjaXR5PSIwLjYiLz4KICAKICA8IS0tIEdyaWQgZG90cyBwYXR0ZXJuICh0ZWNoIGZlZWwpIC0tPgogIDxnIG9wYWNpdHk9IjAuMSI+CiAgICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNjAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICAgIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSIyODAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQ4MCIgcj0iMiIgZmlsbD0iIzZlZTdiNyIvPgogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iNDgwIiByPSIyIiBmaWxsPSIjNmVlN2I3Ii8+CiAgICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0ODAiIHI9IjIiIGZpbGw9IiM2ZWU3YjciLz4KICA8L2c+Cjwvc3ZnPgo=">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Profit Calculator">
+    <meta name="theme-color" content="#0f172a">
+    
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -74,7 +82,7 @@
         .info-box.yellow { background: rgba(251, 191, 36, 0.1); border-left: 3px solid #fbbf24; color: rgba(255, 255, 255, 0.9); }
         .icon { width: 24px; height: 24px; display: inline-block; }
         @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .progress-bar { width: 100%; height: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 9999px; overflow: hidden; margin-bottom: 0.5rem; }
+        .progress-bar { width: 100%; height: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 9999px; overflow: hidden; }
         .progress-fill { height: 100%; transition: width 0.5s ease; border-radius: 9999px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 0.75rem 0.5rem; text-align: left; }
@@ -99,7 +107,7 @@
             width: 100%;
             max-width: 400px;
         }
-        #recalculateBtn:hover { transform: scale(1.03); }
+        #recalculateBtn:active { transform: scale(0.98); }
     </style>
 </head>
 <body>
@@ -129,6 +137,7 @@
                 </div>
 
                 <h3 style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 600; margin-bottom: 1rem;">Job Type</h3>
+
                 <div class="form-group">
                     <label>What are you quoting?</label>
                     <select id="jobType">
@@ -150,6 +159,7 @@
                             <option value="full">Full Load</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Your Price for This Load ($)</label>
                         <input type="number" id="loadPrice" value="325" min="0">
@@ -170,13 +180,17 @@
                             <option value="custom">Custom Specialty Item</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Your Price for This Item ($)</label>
                         <input type="number" id="specialtyPrice" value="500" min="0">
                     </div>
+
                     <div class="info-box green" style="margin-top: 1rem;">
                         <p style="margin: 0; font-size: 0.875rem;">
-                            <strong>💡 Specialty Pricing Tip:</strong> Factor in labor hours, equipment needs, disposal fees, and complexity.
+                            <strong>💡 Specialty Pricing Tip:</strong> Factor in labor hours, equipment needs (saws, tools), 
+                            disposal fees, and complexity. Hot tubs and pools often need cutting/disassembly. 
+                            Sheds may require demo permits.
                         </p>
                     </div>
                 </div>
@@ -187,6 +201,7 @@
                         <h4 style="color: #4ade80; font-weight: 600; margin-bottom: 0.5rem;">Mixed Job Pricing</h4>
                         <p style="margin: 0; font-size: 0.875rem;">Enter pricing for BOTH the specialty item and additional volume-based junk.</p>
                     </div>
+
                     <h4 style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem;">Specialty Item:</h4>
                     <div class="form-group">
                         <label>Item Type</label>
@@ -200,10 +215,12 @@
                             <option value="custom">Custom Item</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Specialty Item Price ($)</label>
                         <input type="number" id="mixedSpecialtyPrice" value="500" min="0">
                     </div>
+
                     <h4 style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem; font-weight: 600; margin: 1rem 0 0.75rem;">Additional Volume:</h4>
                     <div class="form-group">
                         <label>Additional Load Size</label>
@@ -216,6 +233,7 @@
                             <option value="full">Full Load</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Additional Load Price ($)</label>
                         <input type="number" id="mixedLoadPrice" value="200" min="0">
@@ -224,33 +242,36 @@
                 </div>
 
                 <h3 style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Job Complexity</h3>
+
                 <div style="margin-bottom: 1rem;">
                     <label class="checkbox-container">
                         <input type="checkbox" id="applyStairs">
                         <span style="flex: 1;">Stairs</span>
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
-                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Additional Charge ($)</label>
+                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
                         <input type="number" id="stairsCharge" value="75" min="0" style="padding: 0.5rem;">
                     </div>
                 </div>
+
                 <div style="margin-bottom: 1rem;">
                     <label class="checkbox-container">
                         <input type="checkbox" id="applyDisassembly">
                         <span style="flex: 1;">Disassembly</span>
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
-                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Additional Charge ($)</label>
+                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
                         <input type="number" id="disassemblyCharge" value="50" min="0" style="padding: 0.5rem;">
                     </div>
                 </div>
+
                 <div style="margin-bottom: 1rem;">
                     <label class="checkbox-container">
                         <input type="checkbox" id="applyExtraLabor">
                         <span style="flex: 1;">Extra Labor / Heavy Items</span>
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
-                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Additional Charge ($)</label>
+                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
                         <input type="number" id="extraLaborCharge" value="100" min="0" style="padding: 0.5rem;">
                     </div>
                 </div>
@@ -259,40 +280,45 @@
                     <h4 style="color: #4ade80; font-weight: 600; margin-bottom: 0.5rem;">💡 Pricing Pro Tip: Debris Type Matters!</h4>
                     <p style="margin: 0; font-size: 0.875rem; line-height: 1.6;">
                         <strong>Adjust your load price based on disposal costs:</strong><br><br>
+                        
                         <strong style="color: #ef4444;">Higher Price:</strong> Wood, construction debris, concrete, dirt → Must go to landfill (high dump fees)<br><br>
+                        
                         <strong style="color: #4ade80;">Lower Price:</strong> Furniture, appliances, household items → Can be recycled or donated (low/no dump fees)<br><br>
+                        
                         <strong style="color: #fbbf24;">Mixed Loads:</strong> Combination of both → Price in the middle<br><br>
-                        This strategy helps you win more jobs while protecting margins.
+                        
+                        This strategy helps you win more jobs (competitive pricing on easy loads) while protecting margins (higher pricing on expensive-to-dump loads). <strong>You avoid under-bidding landfill jobs and over-bidding donation jobs!</strong>
                     </p>
                 </div>
 
                 <h3 style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Your Costs for This Job</h3>
+
                 <div class="form-group">
                     <label>Landfill / Dump Fee ($)</label>
                     <input type="number" id="costLandfill" value="60" min="0">
                     <small>Enter 0 if donating/recycling items</small>
                 </div>
+
                 <div class="form-group">
                     <label>Fuel Cost ($)</label>
                     <input type="number" id="costFuel" value="25" min="0">
                 </div>
+
                 <div class="form-group">
                     <label>Labor Cost ($)</label>
                     <input type="number" id="costLabor" value="40" min="0">
                     <small>Total labor: rate × hours × workers</small>
                 </div>
 
-                <!-- Recalculate Button -->
                 <div style="margin-top: 2rem; text-align: center;">
                     <button type="button" id="recalculateBtn">
                         🔄 Update Profit Calculation
                     </button>
                     <p style="margin-top: 0.75rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
-                        Tap after changing any values (especially on mobile)
+                        Tap after changing any values
                     </p>
                 </div>
 
-                <!-- Totals Display -->
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                         <span style="color: rgba(255, 255, 255, 0.7);">Total Costs:</span>
@@ -305,7 +331,6 @@
                 </div>
             </div>
 
-            <!-- Right Column: Results -->
             <div>
                 <div class="glow-card">
                     <h3 style="display: flex; align-items: center; gap: 0.5rem; margin: 0 0 1.5rem 0; font-size: 1.125rem; font-weight: 600;">
@@ -314,20 +339,25 @@
                         </svg>
                         Current Profit Margin
                     </h3>
+
                     <div style="text-align: center; margin-bottom: 1.5rem;">
                         <div style="font-size: 4rem; font-weight: 700; line-height: 1;" id="currentMarginPercent">61.5%</div>
                         <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; margin-top: 0.5rem;">Gross Profit Margin</p>
                     </div>
-                    <div class="progress-bar">
+
+                    <div class="progress-bar" style="margin-bottom: 0.5rem;">
                         <div class="progress-fill" id="currentMarginBar" style="width: 61.5%; background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);"></div>
                     </div>
+
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
                         <span>0%</span>
                         <span>30%</span>
                         <span>50%</span>
                         <span>100%</span>
                     </div>
+
                     <div id="marginStatus"></div>
+
                     <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
                         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
                             <span style="color: rgba(255, 255, 255, 0.7);">Revenue:</span>
@@ -351,6 +381,7 @@
                         </svg>
                         Recommended Pricing
                     </h3>
+
                     <div style="background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
@@ -362,6 +393,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div style="background: rgba(251, 191, 36, 0.1); border-left: 3px solid #fbbf24; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
@@ -373,6 +405,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div style="background: rgba(74, 222, 128, 0.1); border-left: 3px solid #4ade80; padding: 1rem; border-radius: 4px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
@@ -388,8 +421,7 @@
             </div>
         </div>
 
-        <!-- Bottom Sections -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
             <div class="glow-card">
                 <h4 style="color: #4ade80; font-size: 1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                     <svg class="icon" fill="none" stroke="#4ade80" viewBox="0 0 24 24">
@@ -404,6 +436,7 @@
                     <li style="margin-bottom: 0.75rem;"><strong>Donation Strategy:</strong> If you can donate items instead of dumping, keep your quote slightly lower. You'll avoid landfill fees AND maintain high profit margins—win-win!</li>
                 </ul>
             </div>
+
             <div class="glow-card">
                 <h4 style="color: #4ade80; font-size: 1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
                     <svg class="icon" fill="none" stroke="#4ade80" viewBox="0 0 24 24">
@@ -411,6 +444,7 @@
                     </svg>
                     National Average Pricing (USA)
                 </h4>
+                
                 <table class="price-table">
                     <thead>
                         <tr>
@@ -426,10 +460,13 @@
                         <tr><td>Full Load</td><td>$550 - $850</td></tr>
                     </tbody>
                 </table>
+
                 <div style="background: rgba(251, 191, 36, 0.1); border-left: 3px solid #fbbf24; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
                     <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.875rem; line-height: 1.6; margin: 0;">
-                        <strong style="color: #fbbf24;">⚠️ Important Disclaimer:</strong> Pricing varies significantly by region.
-                        These are national averages. <strong>Always do your own research:</strong> call 3-5 competitors in your area.
+                        <strong style="color: #fbbf24;">⚠️ Important Disclaimer:</strong> Pricing varies significantly by region. 
+                        These are national averages. <strong>Always do your own research:</strong> 
+                        call 3-5 competitors in your area. This calculator helps you maintain 
+                        high profit margins based on load type, job difficulty, and your actual overhead costs—not to set industry prices.
                     </p>
                 </div>
             </div>
@@ -485,6 +522,7 @@
                 const profit = totalQuotePrice - totalCost;
                 const margin = totalQuotePrice > 0 ? (profit / totalQuotePrice) * 100 : 0;
 
+                // Update displays
                 document.getElementById('displayTotalCost').textContent = '$' + totalCost.toFixed(2);
                 document.getElementById('displayCurrentPrice').textContent = '$' + totalQuotePrice.toFixed(2);
                 document.getElementById('currentMarginPercent').textContent = margin.toFixed(1) + '%';
@@ -492,18 +530,24 @@
                 document.getElementById('displayCosts').textContent = '$' + totalCost.toFixed(2);
                 document.getElementById('displayProfit').textContent = '$' + profit.toFixed(2);
 
+                // Progress bar and colors
                 const marginBar = document.getElementById('currentMarginBar');
+                const marginPercent = document.getElementById('currentMarginPercent');
                 const clampedMargin = Math.min(Math.max(margin, 0), 100);
                 marginBar.style.width = clampedMargin + '%';
 
                 if (margin >= 50) {
                     marginBar.style.background = 'linear-gradient(90deg, #4ade80 0%, #22c55e 100%)';
+                    marginPercent.style.color = '#4ade80';
                 } else if (margin >= 30) {
                     marginBar.style.background = 'linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%)';
+                    marginPercent.style.color = '#fbbf24';
                 } else {
                     marginBar.style.background = 'linear-gradient(90deg, #ef4444 0%, #dc2626 100%)';
+                    marginPercent.style.color = '#ef4444';
                 }
 
+                // Status message
                 const statusDiv = document.getElementById('marginStatus');
                 if (margin >= 50) {
                     statusDiv.innerHTML = '<div style="background: rgba(74, 222, 128, 0.1); border-left: 3px solid #4ade80; padding: 1rem; border-radius: 4px;"><p style="color: #4ade80; font-weight: 600; margin: 0;">✓ Excellent! You\'re in the target profit zone.</p></div>';
@@ -515,6 +559,7 @@
                     statusDiv.innerHTML = '<div style="background: rgba(239, 68, 68, 0.15); border-left: 3px solid #ef4444; padding: 1rem; border-radius: 4px;"><p style="color: #ef4444; font-weight: 700; margin: 0;">🚨 LOSING MONEY! Adjust immediately!</p></div>';
                 }
 
+                // Recommended pricing
                 if (totalCost > 0) {
                     const lowMin = Math.ceil(totalCost / 0.80);
                     const lowMax = Math.ceil(totalCost / 0.70);
@@ -526,9 +571,14 @@
                     document.getElementById('recommendLow').textContent = '$' + lowMin + ' - $' + lowMax;
                     document.getElementById('recommendMedium').textContent = '$' + medMin + ' - $' + medMax;
                     document.getElementById('recommendHigh').textContent = '$' + highMin + ' - $' + highMax;
+                } else {
+                    document.getElementById('recommendLow').textContent = 'Enter costs';
+                    document.getElementById('recommendMedium').textContent = 'Enter costs';
+                    document.getElementById('recommendHigh').textContent = 'Enter costs';
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Calculation error:', error);
+                alert('Calculation error: ' + error.message);
             }
         }
 
@@ -557,5 +607,7 @@
             calculate();
         });
     </script>
+</body>
+</html>
 </body>
 </html>
