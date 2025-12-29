@@ -142,6 +142,7 @@
                     <label>What are you quoting?</label>
                     <select id="jobType">
                         <option value="volume">Volume-Based (by truck load)</option>
+                        <option value="multipleLoads">Multiple Full Loads</option>
                         <option value="specialty">Specialty Item Removal</option>
                         <option value="mixed">Mixed (Specialty + Volume)</option>
                     </select>
@@ -162,7 +163,52 @@
 
                     <div class="form-group">
                         <label>Your Price for This Load ($)</label>
-                        <input type="number" id="loadPrice" value="325" min="0">
+                        <input type="number" id="loadPrice" value="0" min="0">
+                    </div>
+                </div>
+
+                <!-- Multiple Loads Section -->
+                <div id="multipleLoadsSection" style="display: none;">
+                    <div style="background: rgba(74, 222, 128, 0.1); border-left: 3px solid #4ade80; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4 style="color: #4ade80; font-weight: 600; margin-bottom: 0.5rem;">📦 Multiple Full Loads</h4>
+                        <p style="margin: 0; font-size: 0.875rem;">Price large jobs requiring multiple truck trips. Consider offering a per-load discount!</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Full Loads</label>
+                        <input type="number" id="numLoads" value="1" min="1" max="10">
+                        <small>How many full truck loads for this job?</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price Per Load ($)</label>
+                        <input type="number" id="pricePerLoad" value="0" min="0">
+                        <small>Your price for each full load</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Discount Per Load (%) - Optional</label>
+                        <input type="number" id="loadDiscount" value="0" min="0" max="50">
+                        <small>E.g., 10% discount on each load for multi-load jobs</small>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Loads:</span>
+                            <span style="color: #fff; font-weight: 600;" id="displayNumLoads">2 loads</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Price per load:</span>
+                            <span style="color: #fff; font-weight: 600;" id="displayPricePerLoad">$500</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Discount:</span>
+                            <span style="color: #fbbf24; font-weight: 600;" id="displayDiscount">10%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 2px solid rgba(255, 255, 255, 0.1);">
+                            <span style="color: #4ade80; font-weight: 700;">Total Quote:</span>
+                            <span style="color: #4ade80; font-weight: 700; font-size: 1.125rem;" id="displayMultiLoadTotal">$900</span>
+                        </div>
                     </div>
                 </div>
 
@@ -183,7 +229,7 @@
 
                     <div class="form-group">
                         <label>Your Price for This Item ($)</label>
-                        <input type="number" id="specialtyPrice" value="500" min="0">
+                        <input type="number" id="specialtyPrice" value="0" min="0">
                     </div>
 
                     <div class="info-box green" style="margin-top: 1rem;">
@@ -218,7 +264,7 @@
 
                     <div class="form-group">
                         <label>Specialty Item Price ($)</label>
-                        <input type="number" id="mixedSpecialtyPrice" value="500" min="0">
+                        <input type="number" id="mixedSpecialtyPrice" value="0" min="0">
                     </div>
 
                     <h4 style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem; font-weight: 600; margin: 1rem 0 0.75rem;">Additional Volume:</h4>
@@ -236,7 +282,7 @@
 
                     <div class="form-group">
                         <label>Additional Load Price ($)</label>
-                        <input type="number" id="mixedLoadPrice" value="200" min="0">
+                        <input type="number" id="mixedLoadPrice" value="0" min="0">
                         <small>Price for the extra junk beyond the specialty item</small>
                     </div>
                 </div>
@@ -250,7 +296,7 @@
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
                         <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
-                        <input type="number" id="stairsCharge" value="75" min="0" style="padding: 0.5rem;">
+                        <input type="number" id="stairsCharge" value="0" min="0" style="padding: 0.5rem;">
                     </div>
                 </div>
 
@@ -261,7 +307,7 @@
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
                         <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
-                        <input type="number" id="disassemblyCharge" value="50" min="0" style="padding: 0.5rem;">
+                        <input type="number" id="disassemblyCharge" value="0" min="0" style="padding: 0.5rem;">
                     </div>
                 </div>
 
@@ -272,7 +318,19 @@
                     </label>
                     <div style="padding-left: 2rem; margin-top: 0.5rem;">
                         <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
-                        <input type="number" id="extraLaborCharge" value="100" min="0" style="padding: 0.5rem;">
+                        <input type="number" id="extraLaborCharge" value="0" min="0" style="padding: 0.5rem;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="applyDemolition">
+                        <span style="flex: 1;">Demolition Labor Fee</span>
+                    </label>
+                    <div style="padding-left: 2rem; margin-top: 0.5rem;">
+                        <label style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem;">Additional Charge ($)</label>
+                        <input type="number" id="demolitionCharge" value="0" min="0" style="padding: 0.5rem;">
+                        <small style="font-size: 0.75rem;">For sheds, decks, structures requiring demo work</small>
                     </div>
                 </div>
 
@@ -289,24 +347,51 @@
                         
                         This strategy helps you win more jobs (competitive pricing on easy loads) while protecting margins (higher pricing on expensive-to-dump loads). <strong>You avoid under-bidding landfill jobs and over-bidding donation jobs!</strong>
                     </p>
+                    
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(74, 222, 128, 0.3);">
+                        <h4 style="color: #4ade80; font-weight: 600; margin-bottom: 0.5rem;">📦 Multiple Loads Pro Tip</h4>
+                        <p style="margin: 0; font-size: 0.875rem; line-height: 1.6;">
+                            <strong>When pricing jobs requiring multiple full loads, it's smart to offer a per-load discount (10-15%).</strong> 
+                            This helps the customer get a better deal for paying more and makes it easier for you to close bigger jobs. 
+                            <strong>Example:</strong> Instead of $600/load × 3 = $1,800, offer 10% off = $1,620. Customer saves $180, you lock in a $1,600+ job!
+                        </p>
+                    </div>
                 </div>
 
                 <h3 style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Your Costs for This Job</h3>
 
                 <div class="form-group">
                     <label>Landfill / Dump Fee ($)</label>
-                    <input type="number" id="costLandfill" value="60" min="0">
+                    <input type="number" id="costLandfill" value="0" min="0">
                     <small>Enter 0 if donating/recycling items</small>
                 </div>
 
                 <div class="form-group">
+                    <label>Dumpster Rental Cost ($)</label>
+                    <input type="number" id="costDumpster" value="0" min="0">
+                    <small>For large jobs requiring a dumpster</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Demo Machine Rental ($)</label>
+                    <input type="number" id="costDemoMachine" value="0" min="0">
+                    <small>Excavator, bobcat, or other demo equipment</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Truck / U-Haul Rental ($)</label>
+                    <input type="number" id="costTruckRental" value="0" min="0">
+                    <small>If you're renting a truck or trailer for this job</small>
+                </div>
+
+                <div class="form-group">
                     <label>Fuel Cost ($)</label>
-                    <input type="number" id="costFuel" value="25" min="0">
+                    <input type="number" id="costFuel" value="0" min="0">
                 </div>
 
                 <div class="form-group">
                     <label>Labor Cost ($)</label>
-                    <input type="number" id="costLabor" value="40" min="0">
+                    <input type="number" id="costLabor" value="0" min="0">
                     <small>Total labor: rate × hours × workers</small>
                 </div>
 
@@ -317,16 +402,23 @@
                     <p style="margin-top: 0.75rem; font-size: 0.875rem; color: rgba(255, 255, 255, 0.6);">
                         Tap after changing any values
                     </p>
+                    
+                    <button type="button" id="clearBtn" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #ef4444; font-weight: 600; font-size: 1rem; padding: 0.75rem 2rem; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; width: 100%; max-width: 400px; margin-top: 1rem;">
+                        🗑️ Clear All Inputs
+                    </button>
+                    <p style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.5);">
+                        Reset all fields to start a new quote
+                    </p>
                 </div>
 
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; margin-top: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                         <span style="color: rgba(255, 255, 255, 0.7);">Total Costs:</span>
-                        <span style="color: #fff; font-weight: 700; font-size: 1.125rem;" id="displayTotalCost">$125.00</span>
+                        <span style="color: #fff; font-weight: 700; font-size: 1.125rem;" id="displayTotalCost">$0.00</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
                         <span style="color: rgba(255, 255, 255, 0.7);">Total Quote Price:</span>
-                        <span style="color: #4ade80; font-weight: 700; font-size: 1.125rem;" id="displayCurrentPrice">$325.00</span>
+                        <span style="color: #4ade80; font-weight: 700; font-size: 1.125rem;" id="displayCurrentPrice">$0.00</span>
                     </div>
                 </div>
             </div>
@@ -341,12 +433,12 @@
                     </h3>
 
                     <div style="text-align: center; margin-bottom: 1.5rem;">
-                        <div style="font-size: 4rem; font-weight: 700; line-height: 1;" id="currentMarginPercent">61.5%</div>
+                        <div style="font-size: 4rem; font-weight: 700; line-height: 1;" id="currentMarginPercent">0.0%</div>
                         <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; margin-top: 0.5rem;">Gross Profit Margin</p>
                     </div>
 
                     <div class="progress-bar" style="margin-bottom: 0.5rem;">
-                        <div class="progress-fill" id="currentMarginBar" style="width: 61.5%; background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);"></div>
+                        <div class="progress-fill" id="currentMarginBar" style="width: 0%; background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);"></div>
                     </div>
 
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 1rem;">
@@ -361,15 +453,15 @@
                     <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
                         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
                             <span style="color: rgba(255, 255, 255, 0.7);">Revenue:</span>
-                            <span style="color: #fff; font-weight: 600;" id="displayRevenue">$325.00</span>
+                            <span style="color: #fff; font-weight: 600;" id="displayRevenue">$0.00</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                             <span style="color: rgba(255, 255, 255, 0.7);">Costs:</span>
-                            <span style="color: #fff; font-weight: 600;" id="displayCosts">$125.00</span>
+                            <span style="color: #fff; font-weight: 600;" id="displayCosts">$0.00</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-top: 2px solid rgba(255, 255, 255, 0.2);">
                             <span style="color: #4ade80; font-weight: 700;">Profit:</span>
-                            <span style="color: #4ade80; font-weight: 700; font-size: 1.25rem;" id="displayProfit">$200.00</span>
+                            <span style="color: #4ade80; font-weight: 700; font-size: 1.25rem;" id="displayProfit">$0.00</span>
                         </div>
                     </div>
                 </div>
@@ -481,6 +573,7 @@
         function updateJobTypeDisplay() {
             const jobType = document.getElementById('jobType').value;
             document.getElementById('volumeSection').style.display = jobType === 'volume' ? 'block' : 'none';
+            document.getElementById('multipleLoadsSection').style.display = jobType === 'multipleLoads' ? 'block' : 'none';
             document.getElementById('specialtySection').style.display = jobType === 'specialty' ? 'block' : 'none';
             document.getElementById('mixedSection').style.display = jobType === 'mixed' ? 'block' : 'none';
             calculate();
@@ -493,6 +586,20 @@
 
                 if (jobType === 'volume') {
                     basePrice = Number(document.getElementById('loadPrice').value) || 0;
+                } else if (jobType === 'multipleLoads') {
+                    const numLoads = Number(document.getElementById('numLoads').value) || 1;
+                    const pricePerLoad = Number(document.getElementById('pricePerLoad').value) || 0;
+                    const discount = Number(document.getElementById('loadDiscount').value) || 0;
+                    
+                    const subtotal = numLoads * pricePerLoad;
+                    const discountAmount = subtotal * (discount / 100);
+                    basePrice = subtotal - discountAmount;
+                    
+                    // Update multiple loads display
+                    document.getElementById('displayNumLoads').textContent = numLoads + ' load' + (numLoads > 1 ? 's' : '');
+                    document.getElementById('displayPricePerLoad').textContent = '$' + pricePerLoad.toFixed(0);
+                    document.getElementById('displayDiscount').textContent = discount + '%';
+                    document.getElementById('displayMultiLoadTotal').textContent = '$' + basePrice.toFixed(2);
                 } else if (jobType === 'specialty') {
                     basePrice = Number(document.getElementById('specialtyPrice').value) || 0;
                 } else if (jobType === 'mixed') {
@@ -504,12 +611,17 @@
                 const stairsCharge = Number(document.getElementById('stairsCharge').value) || 0;
                 const disassemblyCharge = Number(document.getElementById('disassemblyCharge').value) || 0;
                 const extraLaborCharge = Number(document.getElementById('extraLaborCharge').value) || 0;
+                const demolitionCharge = Number(document.getElementById('demolitionCharge').value) || 0;
 
                 const applyStairs = document.getElementById('applyStairs').checked;
                 const applyDisassembly = document.getElementById('applyDisassembly').checked;
                 const applyExtraLabor = document.getElementById('applyExtraLabor').checked;
+                const applyDemolition = document.getElementById('applyDemolition').checked;
 
                 const costLandfill = Number(document.getElementById('costLandfill').value) || 0;
+                const costDumpster = Number(document.getElementById('costDumpster').value) || 0;
+                const costDemoMachine = Number(document.getElementById('costDemoMachine').value) || 0;
+                const costTruckRental = Number(document.getElementById('costTruckRental').value) || 0;
                 const costFuel = Number(document.getElementById('costFuel').value) || 0;
                 const costLabor = Number(document.getElementById('costLabor').value) || 0;
 
@@ -517,8 +629,9 @@
                 if (applyStairs) totalQuotePrice += stairsCharge;
                 if (applyDisassembly) totalQuotePrice += disassemblyCharge;
                 if (applyExtraLabor) totalQuotePrice += extraLaborCharge;
+                if (applyDemolition) totalQuotePrice += demolitionCharge;
 
-                const totalCost = costLandfill + costFuel + costLabor;
+                const totalCost = costLandfill + costDumpster + costDemoMachine + costTruckRental + costFuel + costLabor;
                 const profit = totalQuotePrice - totalCost;
                 const margin = totalQuotePrice > 0 ? (profit / totalQuotePrice) * 100 : 0;
 
@@ -603,12 +716,68 @@
                 }, 1500);
             });
 
+            // Clear All Inputs button
+            const clearBtn = document.getElementById('clearBtn');
+            clearBtn.addEventListener('click', function() {
+                // Reset job type to volume
+                document.getElementById('jobType').value = 'volume';
+                
+                // Reset volume section to ZERO
+                document.getElementById('analyzeLoadSize').value = 'half';
+                document.getElementById('loadPrice').value = '0';
+                
+                // Reset multiple loads section to ZERO
+                document.getElementById('numLoads').value = '1';
+                document.getElementById('pricePerLoad').value = '0';
+                document.getElementById('loadDiscount').value = '0';
+                
+                // Reset specialty section to ZERO
+                document.getElementById('specialtyType').value = 'hottub';
+                document.getElementById('specialtyPrice').value = '0';
+                
+                // Reset mixed section to ZERO
+                document.getElementById('mixedSpecialtyType').value = 'hottub';
+                document.getElementById('mixedSpecialtyPrice').value = '0';
+                document.getElementById('mixedLoadSize').value = 'quarter';
+                document.getElementById('mixedLoadPrice').value = '0';
+                
+                // Reset complexity checkboxes
+                document.getElementById('applyStairs').checked = false;
+                document.getElementById('stairsCharge').value = '0';
+                document.getElementById('applyDisassembly').checked = false;
+                document.getElementById('disassemblyCharge').value = '0';
+                document.getElementById('applyExtraLabor').checked = false;
+                document.getElementById('extraLaborCharge').value = '0';
+                document.getElementById('applyDemolition').checked = false;
+                document.getElementById('demolitionCharge').value = '0';
+                
+                // Reset ALL costs to ZERO
+                document.getElementById('costLandfill').value = '0';
+                document.getElementById('costDumpster').value = '0';
+                document.getElementById('costDemoMachine').value = '0';
+                document.getElementById('costTruckRental').value = '0';
+                document.getElementById('costFuel').value = '0';
+                document.getElementById('costLabor').value = '0';
+                
+                // Update display and recalculate
+                updateJobTypeDisplay();
+                
+                // Visual feedback
+                clearBtn.textContent = '✓ Cleared!';
+                clearBtn.style.background = 'rgba(74, 222, 128, 0.2)';
+                clearBtn.style.borderColor = '#4ade80';
+                clearBtn.style.color = '#4ade80';
+                setTimeout(() => {
+                    clearBtn.textContent = '🗑️ Clear All Inputs';
+                    clearBtn.style.background = 'rgba(239, 68, 68, 0.2)';
+                    clearBtn.style.borderColor = '#ef4444';
+                    clearBtn.style.color = '#ef4444';
+                }, 1500);
+            });
+
             updateJobTypeDisplay();
             calculate();
         });
     </script>
-</body>
-</html>
-</html>
 </body>
 </html>
