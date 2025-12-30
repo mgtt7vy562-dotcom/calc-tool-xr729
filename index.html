@@ -783,7 +783,7 @@
 
 <script>
 (function() {
-    const PRODUCT_PERMALINK = 'junk-removal-profit-calculator'; // Your Gumroad product permalink
+    const PRODUCT_ID = 'j0OKIs1pwGjmo-wvOlTLhA=='; // Your Gumroad product ID
     const LICENSE_STORAGE_KEY = 'junkRemovalCalcLicense';
     
     // License modal HTML
@@ -873,7 +873,7 @@
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: new URLSearchParams({
-                    'product_permalink': PRODUCT_PERMALINK,
+                    'product_id': PRODUCT_ID,
                     'license_key': licenseKey.trim(),
                 })
             });
